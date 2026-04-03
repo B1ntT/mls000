@@ -1,0 +1,190 @@
+@import url('fonts/main_font.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    font-family: 'StratosSkyeng', 'Roboto', sans-serif;
+}
+
+.content {
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.center {
+    padding-left: calc(50% - 500px);  
+    padding-right: calc(50% - 500px);
+    padding-top: 60px;
+    padding-bottom: 60px;
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.95);
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 48px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 32px;
+    color: #34495e;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.favorite-img {
+    display: block;
+    max-width: 400px;
+    height: auto;
+    margin: 30px auto;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.about-list, .quotes-list {
+    background: rgba(255,255,255,0.7);
+    padding: 10px;
+    border-radius: 15px;
+    margin: 20px 0;
+    list-style-position: inside;
+    text-align: left;
+}
+
+.about-list li, .quotes-list li {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #333;
+    padding-left: 20px;
+}
+
+.facts-list {
+    background: rgba(255,255,255,0.7);
+    padding: 30px;
+    border-radius: 15px;
+    margin: 20px 0;
+    counter-reset: fact-counter;
+    text-align: left;
+}
+
+.facts-list li {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: #333;
+    padding-left: 30px;
+    position: relative;
+}
+
+.facts-list li::before {
+    content: counter(fact-counter) ".";
+    counter-increment: fact-counter;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: #3498db;
+    font-size: 24px;
+}
+
+.memes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.meme-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+}
+
+.meme-img:hover {
+    transform: scale(1.05);
+}
+
+.nav-center {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 3;
+}
+
+.nav-btn {
+    background: linear-gradient(45deg, #3498db, #2980b9);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: all 0.3s;
+    box-shadow: 0 8px 20px rgba(52,152,219,0.4);
+    border: none;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background: linear-gradient(45deg, #2980b9, #1f5f8b);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(52,152,219,0.6);
+}
+
+@media (max-width: 1200px) {
+    .center {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .center {
+        padding: 30px 20px;
+        margin: 10px;
+    }
+    
+    h1 { font-size: 36px; }
+    h2 { font-size: 28px; }
+    
+    .nav-center {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .memes-container {
+        grid-template-columns: 1fr;
+    }
+}
